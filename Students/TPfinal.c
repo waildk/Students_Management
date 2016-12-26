@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "TPfinal.h"
+#include "headers/TPfinal.h"
 
 etudiant *Creat()
     {
         etudiant *e =NULL ;
-        ///allouÈ pour struct etudiant
+        ///allou√© pour struct etudiant
         e = (etudiant *) malloc(sizeof(*e));
-        ///allouÈ pour struct notes
+        ///allou√© pour struct notes
         e->modules = (notes *) malloc(sizeof(notes));
-        ///allouÈ pour struct module
+        ///allou√© pour struct module
             e->modules->ANG = (module *) malloc(sizeof(module));
             e->modules->LM = (module *) malloc(sizeof(module));
             e->modules->SI = (module *) malloc(sizeof(module));
@@ -19,7 +19,7 @@ etudiant *Creat()
             e->modules->ASDD = (module *) malloc(sizeof(module));
             e->modules->TL = (module *) malloc(sizeof(module));
         e->next = NULL ;
-                ///retournÈ un pointeur vers l'etudiant crÈe
+                ///retourn√© un pointeur vers l'etudiant cr√©e
     return e ;
     }
 
@@ -35,7 +35,7 @@ etudiant *Ajouter_elem(listeEtud *liste)
             else
             {
                 while (position->next != NULL )  position = position->next ; /// pour aboutir au dernier etudiant
-                position->next = Creat() ;          /// crÈer un nouveau
+                position->next = Creat() ;          /// cr√©er un nouveau
                 position = position->next ;
             }
                 liste->taille ++   ;         ///incrementer la taille de la liste
@@ -150,7 +150,7 @@ int MoyGen (etudiant *etud)
        moy /= etud->modules->coeffTotale ;
        etud->moyenne = moy ;    /// affecte la moyenne au champ de l'etudiant
 
-        if ( moy >= 10 ) return 1 ; else return 0 ;     ///admis 1 ou ajournÈ 0
+        if ( moy >= 10 ) return 1 ; else return 0 ;     ///admis 1 ou ajourn√© 0
 }
 
 int Credit (etudiant *etud)
@@ -268,7 +268,7 @@ int Menu (listeEtud *l1)
                 int cmp ;
                 etudiant *position = NULL ;
                 position = l1->first ;
-                if (position == NULL)   /// c‡d la liste est vide
+                if (position == NULL)   /// c√†d la liste est vide
                 {
                     printf("entrer le nombre totale de la promo : ");
                         scanf("%d",&nbr);
@@ -331,7 +331,7 @@ int Menu (listeEtud *l1)
                 a_afficher = RechEtud(l1);
                 if ( a_afficher == NULL)
                 {
-                    printf("cet etudiant n'existe pas !\nvoulez vous le crÈer ( 0 = Oui , 1 = Non ): ");
+                    printf("cet etudiant n'existe pas !\nvoulez vous le cr√©er ( 0 = Oui , 1 = Non ): ");
                     scanf("%d",&con);
                     if (!con)
                     {
