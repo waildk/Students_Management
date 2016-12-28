@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "headers/TPfinal.h"
+#include "TPfinal.h"
 
 etudiant *Creat()
     {
@@ -253,9 +253,10 @@ int Menu (listeEtud *l1)
     system("cls");          ///clear screen
 
         printf("Bienvenue a l'application de gestion de la promo Informatique 2016-2017 \nCreated By W@il\n");
-        printf("1-Remplir toute la promo \n2-Inserer des nouveaux etudiants \n");
+        printf("1-initaliser et Remplir toute la promo \n2-Inserer des nouveaux etudiants \n");
         printf("3-Afficher toute la promo \n4-Afficher le nombre totale des etudiants \n5-Afficher un etudiant \n");
-        printf("6-Afficher le major de promo \n7-Reinitaliser toute la promo\n8-ecraser tous \n0-exit\n");
+        printf("6-Afficher le major de promo \n7-Reinitaliser toute la promo\n8-ecraser tous \n");
+        printf("9-initaliser toute la promo \n0-exit\n");
         printf("entrer votre choix : ");
             scanf("%d",&choix);
     switch (choix)
@@ -263,6 +264,22 @@ int Menu (listeEtud *l1)
           case 0 : ;        ///exit
               break ;
 
+          case 9 :          ///initaliser toute la promo
+            {
+                 int cmp ;
+                etudiant *position = NULL ;
+                position = l1->first ;
+
+                if (position) DeleteList(l1);
+                    printf("entrer le nombre totale de la promo : ");
+                        scanf("%d",&nbr);
+
+                for ( cmp = 0 ; cmp < nbr ; cmp++)
+                {
+                    Ajouter_elem(l1);
+                }
+                position = l1->first ;
+                }break ;
           case 1 :          /// remplir toute la promo
             {
                 int cmp ;
